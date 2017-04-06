@@ -26,7 +26,7 @@ public class TwitterPoruka {
 	 * @param korisnik oznacava naziv korisnika
 	 */
 	public void setKorisnik(String korisnik) {
-		if (korisnik == null || !korisnik.isEmpty())
+		if (korisnik == null || korisnik.isEmpty()) //ispravljena greska testom setKorisnikPrazString
 			throw new RuntimeException("Ime korisnika mora biti uneto");
 		this.korisnik = korisnik;
 	}
@@ -35,15 +35,16 @@ public class TwitterPoruka {
 	 * @return	poruku korisnika
 	 */
 	public String getPoruka() {
-		return "poruka";
+		return this.poruka; //ispravljena greska
 	}
 	/**
 	 * Metoda koja postavlja poruku
 	 * @param poruka poruka koju korisnik postavlja
 	 */
 	public void setPoruka(String poruka) {
-		if (this.poruka == null || this.poruka == new String("") || this.poruka.length() > 140)
+		if (poruka == null || poruka.equals(new String("")) || poruka.length() > 140) //ispravljena greska testovima
 			throw new RuntimeException("Poruka mora biti uneta i mora imati najvise 140 znakova");
+		
 		this.poruka = poruka;
 	}
 	/**
