@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
 /**
  * Klasa omogucava unos i pregleda poruka na Twitteru
- * @author Bojan Tomic
+ * @author Ivan Markovic
  * @version 1.0
  */
 public class Twitter {
@@ -37,8 +37,9 @@ public class Twitter {
 		/**
 		 * Metoda vraca poruke koje imaju neki zadati tag
 		 * @param maxBroj broj poruka koje se traze
-		 * @param tag tekst koji oznacava neki tag koji se trazi u porukama
+		 * @param tag tekst koji oznacava neki tag koji se trazi u porukama 
 		 * @return lista pronadjenih poruka klase TwitterPoruka[]
+		 * @throws RuntimeException ako nije unet tag ili je ta vrednost null
 		 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag == null || tag.isEmpty())

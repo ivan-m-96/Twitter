@@ -1,7 +1,7 @@
 package com.twitter.poruke;
 /**
  * Klasa twitterPoruka omogucava slanje twitter poruka i povezivanje tih poruka sa korisnikom
- * @author Bojan Tomic
+ * @author Ivan Markovic
  * @version 1.0
  *
  */
@@ -24,6 +24,7 @@ public class TwitterPoruka {
 	/**
 	 * Metoda koja postavlja korisnika koji salje poruku
 	 * @param korisnik oznacava naziv korisnika
+	 * @throws RuntimeException ako nije uneto ime korisnika ili je ta vrednost null
 	 */
 	public void setKorisnik(String korisnik) {
 		if (korisnik == null || korisnik.isEmpty()) //ispravljena greska testom setKorisnikPrazString
@@ -40,6 +41,7 @@ public class TwitterPoruka {
 	/**
 	 * Metoda koja postavlja poruku
 	 * @param poruka poruka koju korisnik postavlja
+	 *  @throws RuntimeException ako nije uneta poruka, duzina poruke veca od 140 ili je ta vrednost null
 	 */
 	public void setPoruka(String poruka) {
 		if (poruka == null || poruka.equals(new String("")) || poruka.length() > 140) //ispravljena greska testovima
@@ -49,6 +51,7 @@ public class TwitterPoruka {
 	}
 	/**
 	 * Metoda koja stampa poruku i ime korisnika na ekran
+	 * @return KORISNIK: ime korisnika PORUKA: poruka koju salje korisnik
 	 */
 	public String toString() {
 		return "KORISNIK:" + korisnik + " PORUKA:" + poruka;

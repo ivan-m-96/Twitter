@@ -1,8 +1,7 @@
-package Test;
+package com.twitter;
 
 import static org.junit.Assert.*;
 
-import java.util.LinkedList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -24,9 +23,25 @@ public class TwitterTest {
 	}
 
 	@Test
-	public void testVratiSvePoruke() {
-		LinkedList<TwitterPoruka> rezult = t.vratiSvePoruke();
-		assertTrue(rezult instanceof LinkedList<?>);
+	public void testVratiSvePorukeBrojElemenata() {
+		t.unesi("Marko", "Poruka koja sadrzi tag.");
+		t.unesi("Marko", "Poruka koja sadrzi tag na neki drugi nacin.");
+		t.unesi("Marko", "tag Poruka koja sadrzi tag.");
+		assertEquals(3, t.vratiSvePoruke().size());
+		
+	}
+	@Test
+	public void testVratiSvePorukeSadrzaj() {
+		t.unesi("Marko", "Test1.");
+		t.unesi("Marko", "Test2.");
+		t.unesi("Marko", "Test3.");
+		assertEquals("Marko", t.vratiSvePoruke().get(0).getKorisnik());
+		assertEquals("Marko", t.vratiSvePoruke().get(1).getKorisnik());
+		assertEquals("Marko", t.vratiSvePoruke().get(2).getKorisnik());
+		assertEquals("Test1.", t.vratiSvePoruke().get(0).getPoruka());
+		assertEquals("Test2.", t.vratiSvePoruke().get(1).getPoruka());
+		assertEquals("Test3.", t.vratiSvePoruke().get(2).getPoruka());
+
 	}
 
 	@Test

@@ -1,4 +1,4 @@
-package Test;
+package com.twitter.poruke;
 
 import static org.junit.Assert.*;
 
@@ -67,8 +67,8 @@ public class TwitterPorukaTest {
 	public void testToString() {
 		a.setKorisnik("Pera");
 		a.setPoruka("Testira kod.");
-		assertTrue(a.toString().contains("Pera"));
-		assertTrue(a.toString().contains("Testira kod."));
+		assertTrue(a.toString().equals("KORISNIK:Pera PORUKA:Testira kod."));
+		
 	}
 
 }
